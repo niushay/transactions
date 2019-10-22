@@ -22,6 +22,9 @@ class MyHomePage extends StatelessWidget {
         id: 't2', title: 'Clothes', amount: 55.22, date: DateTime.now()),
     Transaction(id: 't3', title: 'Pants', amount: 16.98, date: DateTime.now()),
   ];
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -39,6 +42,35 @@ class MyHomePage extends StatelessWidget {
               color: Colors.blue,
               child: Text('CHART!'),
               elevation: 5,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                    controller: titleController,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                    controller: amountController,
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Add Transaction',
+                      style: TextStyle(color: Colors.purple),
+                    ),
+                    onPressed: () {
+                      print (titleController);
+                      print (amountController);
+                    },
+                  )
+                ],
+              ),
             ),
           ),
           Column(
@@ -68,7 +100,7 @@ class MyHomePage extends StatelessWidget {
                           fontSize: 16,
                         )),
                     Text(
-                      DateFormat.yMMMd().format( tx.date),
+                      DateFormat.yMMMd().format(tx.date),
                       style: TextStyle(
                         color: Colors.grey,
                       ),
