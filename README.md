@@ -1,6 +1,6 @@
-# costs
+# transactions
 
-A new Flutter application.
+You can manage your transactions by this app.
 
 ## Getting Started
 
